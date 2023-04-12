@@ -1,0 +1,388 @@
+﻿<!doctype html>
+<html lang="english">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+
+
+
+    <title>Platform Library</title>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.0.1/css/searchBuilder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchpanes/1.2.1/css/searchPanes.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.0.2/css/dataTables.dateTime.min.css">
+
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/searchpanes/1.2.1/js/dataTables.searchPanes.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/searchpanes/1.2.1/js/dataTables.searchPanes.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/plug-ins/1.13.2/dataRender/hyperLink.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="http://modulelibrary.otis.com/site/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+
+    <style>
+        .navbar {
+            -webkit-box-shadow: 0 8px 6px -6px #999;
+            -moz-box-shadow: 0 8px 6px -6px #999;
+            border-bottom: rgb(168, 194, 134) 3px solid;
+            box-shadow: 0 8px 6px -6px #999;
+            /* the rest of your styling */
+        }
+        
+        div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane tr > th, div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane tr > td {
+            padding: 10px 10px;
+            border-top: #d9d3ca 1px solid;
+            border-left: #d9d3ca 1px solid;
+            border-right: #d9d3ca 1px solid;
+            border-bottom: transparent 1px solid;
+            background-color: #d9d3ca;
+        }
+
+        a {
+            text-decoration: none;
+            font-variant: revert;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-top: 3px solid transparent;
+        }
+
+            a:hover, a:focus {
+                text-align: center;
+            }
+
+        .active {
+            color: rgb(4, 30, 66);
+            text-align: center;
+        }
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 1200px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .a1:hover, .a1:focus {
+            background-color: rgb(203, 160, 82);
+            background-image: linear-gradient(to right, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.7) 100%);
+            background-repeat: no-repeat;
+            transition: background-size 1s, background-color 1s;
+        }
+
+
+
+        /* toggle */
+        .sidenav {
+            height: 100%;
+            width: 0px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #ebeeff;
+            border-right: gray 2px solid;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: 2px 2px 5px gray;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 14px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #d1d5ff;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #ebeeff;
+        }
+
+        /* Handle color */
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+            border: rgb(191, 152, 80) 1px solid;
+            border-radius: 5px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d1c3ae;
+                width: 20px;
+            }
+
+
+
+        /* Arrow animation */
+
+        .arrow {
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            transform: translate(-50%,-50%);
+        }
+
+            .arrow span {
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-bottom: 5px solid rgb(203, 160, 82);
+                border-right: 5px solid rgb(203, 160, 82);
+                transform: rotate(45deg);
+                margin: -10px;
+                animation: animate 2s infinite;
+            }
+
+                .arrow span:nth-child(2) {
+                    animation-delay: -0.2s;
+                }
+
+                .arrow span:nth-child(3) {
+                    animation-delay: -0.4s;
+                }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px,-20px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px,20px);
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="http://modulelibrary.otis.com/site/assets/css/navbar-top-fixed.css" rel="stylesheet">
+    <link href="http://modulelibrary.otis.com/site/assets/css/navbar.css" rel="stylesheet">
+</head>
+<body style="max-height:500px; overflow:scroll;">
+
+
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: rgb(28, 59, 102);">
+        <div class="container-fluid">
+            <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+                <a class="navbar-brand" href="https://otiselevator.sharepoint.com/sites/PlatformDevelopment/sitepages/home.aspx" style="color: rgb(4, 30, 66) !important;"><img src="http://modulelibrary.otis.com/site/assets/img/logop.png" alt="" width="420px" height="65px" class="d-inline-block align-text-top" style="transparent !important;position:absolute;  left: 0px; top: 0px"></a>
+
+            </h1>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-target="#navbarsExample03"
+                    aria-controls="navbarsExample03"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html" style="transparent  !important;padding-left:350px; border-top:transparent 1px solid;">&nbsp;</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html" style="color: rgb(203, 160, 82) !important;border-top:transparent 1px solid; padding:10px;">Product Library</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html" style="color: white !important; padding-left: 5px; padding-right: 5px; border-top: transparent 1px solid; padding:10px;">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h2 style="text-align:center"> This Page is under Construction </h2>
+       
+        <!-- Definitions -->
+        <div class="accordion" id="accordionExample" style=" position:relative;left:5%;width:90% " ;>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Product Library 
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Platform Baselines( Product Family)
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                       
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        New Product 
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        A combination of <strong>modules</strong>.
+                    </div>
+                </div>
+            </div>
+            <!-- segment -->
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Module
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Modules are units of a larger system that are <strong>structurally independent</strong> of one another but work together
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+        $('#example tbody').on('click', 'td.details-control', function () {
+
+            //table highlight
+
+            //child row show / hide
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
+
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            }
+            else {
+                // Open this row
+                row.child(format(row.data())).show();
+                tr.addClass('shown');
+            }
+
+        });
+        //add element id for filter
+        //$('.sidenav').attr('id','mySidenav')
+        document.getElementById("mySidenav").style.width = "200px";
+        document.getElementById("main").style.marginLeft = "200px";
+        document.getElementById("newbtn").style.left = "198px";
+        //document.getElementById("newbtn").style.top = "0px";
+        document.getElementById("rarrow").style.transform = "rotate(0deg)";
+        document.getElementById("rarrow").style.top = "0px";
+        document.getElementById("rarrow").style.left = "20px";
+        $("button").remove(".dtsp-countButton, .dtsp-nameButton");
+        $('.dtsp-topRow').removeClass("dtsp-subRowsContainer")
+    //var x = document.getElementsByClassName("sidenav")[0];
+    //    x.id="mySidenav"
+} );
+
+        //adding toggle button
+        function openNav() {
+            var x = document.getElementById("mySidenav").style.width;
+            if (x === "0px") {
+                document.getElementById("mySidenav").style.width = "200px";
+                document.getElementById("main").style.marginLeft = "200px";
+                document.getElementById("newbtn").style.left = "198px";
+                document.getElementById("rarrow").style.transform = "rotate(0deg)";
+                document.getElementById("rarrow").style.top = "0px";
+                document.getElementById("rarrow").style.left = "20px";
+            } else {
+                document.getElementById("mySidenav").style.width = "0px";
+                document.getElementById("main").style.marginLeft = "0px";
+                document.getElementById("newbtn").style.left = "0px";
+                document.getElementById("rarrow").style.transform = "rotate(180deg)";
+                document.getElementById("rarrow").style.top = "30px";
+                document.getElementById("rarrow").style.left = "10px";
+
+            }
+        }
+
+    </script>
+</body>
+</html>
