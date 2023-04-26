@@ -33,7 +33,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: rgb(28, 59, 102);">
         <div class="container-fluid">
             <h1 class="d-flex align-items-center fs-4 text-white mb-0">
-                <a class="navbar-brand" href="https://otiselevator.sharepoint.com/sites/PlatformDevelopment/sitepages/home.aspx" style="color: rgb(4, 30, 66) !important;"><img src="http://modulelibrary.otis.com/site/assets/img/logop.png" alt="" width="420px" height="65px" class="d-inline-block align-text-top" style="transparent !important;position:absolute;  left: 0px; top: 0px"></a>
+                <a class="navbar-brand" href="" style="color: rgb(4, 30, 66) !important;"><img src="http://modulelibrary.otis.com/site/assets/img/logop.png" alt="" width="420px" height="65px" class="d-inline-block align-text-top" style="transparent !important;position:absolute;  left: 0px; top: 0px"></a>
 
             </h1>
             <button class="navbar-toggler"
